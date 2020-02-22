@@ -1,0 +1,10 @@
+
+spring:
+  data:
+    mongodb:
+      database: local
+      username: ${CANDIDATE_CRUD_DB_USERNAME:root}
+      password: ${CANDIDATE_CRUD_DB_PASSWD:example}
+      authentication-database: admin
+server:
+  port: 4101
