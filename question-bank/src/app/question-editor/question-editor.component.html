@@ -1,0 +1,25 @@
+<div *ngIf="question">
+
+  <h2>{{question.text }}</h2>
+  <div><span>id: </span>{{question.id}}</div>
+  <div>
+    <label>question:
+      <input [(ngModel)]="question.text" placeholder="text"/>
+    </label>
+  </div>
+
+  <div>
+    <label>answer:
+      <input [(ngModel)]="question.answer" placeholder="text"/>
+    </label>
+  </div>
+
+  <div>
+    <label>categories:
+      <input [(ngModel)]="question.categories" placeholder="comma separated categories"/>
+    </label>
+  </div>
+
+</div>
+
+<button (click)="goBack()">go back</button>

@@ -1,0 +1,8 @@
+<h2>Question List</h2>
+<ul class="question-list-items">
+  <li *ngFor="let question of questions" [class.selected]="question === selectedQuestion">
+    <a routerLink="/detail/{{question.id}}" routerLinkActive="router-link-active" >
+      <span class="badge">{{question.id}}</span> {{question.text}}
+    </a>
+  </li>
+</ul>
