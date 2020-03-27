@@ -12,15 +12,10 @@ import { Location } from '@angular/common';
 export class QuestionEditorComponent implements OnInit {
 
   @Input() question: Question = {
-    id: 1,
-    text: 'Can you explain polymorphism',
-    categories: 'OOP, Java',
-    answer: 'is an object-oriented programming concept' +
-    'that refers to the ability of a variable, function' +
-    'or object to take on multiple forms. A language' +
-    'that features polymorphism allows developers to ' +
-    'program in the general rather than program in ' +
-    'the specific.',
+    id: -1,
+    text: 'Add question here',
+    categories: 'Add comma separated categories',
+    answer: 'Write expected answer here',
     relatedQuestions: []
   };
 
@@ -36,12 +31,23 @@ export class QuestionEditorComponent implements OnInit {
 
   getQuestion(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.questionService.getQuestion(id)
-    .subscribe(question => this.question = question);
+    if (id) {
+      this.questionService.getQuestion(id)
+        .subscribe(question => this.question = question);
+    }
   }
 
   goBack(): void {
     this.location.back();
   }
 
+  save(): void {
+    if (this.question.id > 0) {
+      this.questionService.updateQuestion(this.question)
+        .subscribe(() => this.goBack())
+    } else {
+      this.questionService.addQuestion(this.question)
+        .subscribe(() => this.goBack());
+    }
+  }
 }

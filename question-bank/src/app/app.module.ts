@@ -8,6 +8,9 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
 import { QuestionListComponent } from './question-list/question-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
    declarations: [
@@ -15,12 +18,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       QuestionEditorComponent,
       QuestionListComponent,
       MessagesComponent,
-      DashboardComponent
+      DashboardComponent,
+
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+     HttpClientModule,
+     HttpClientInMemoryWebApiModule.forRoot(
+       InMemoryDataService, { dataEncapsulation: false }
+     )
    ],
    providers: [],
    bootstrap: [

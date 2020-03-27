@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: 'questions', component: QuestionListComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'detail/new', component: QuestionEditorComponent},
   {path: 'detail/:id', component: QuestionEditorComponent}
 ];
 
