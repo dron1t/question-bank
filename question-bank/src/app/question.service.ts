@@ -20,7 +20,15 @@ export class QuestionService {
   getQuestions(): Observable<Question[]> {
     return this.http.get<Question[]>(this.questionsUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
+        tap(_ => this.log('fetched questions')),
+        catchError(this.handleError<Question[]>('getQuestions', []))
+      );
+  }
+  //FIXME: call random questions and save those questions on userside (cache).
+  getQuestionsForInterview(): Observable<Question[]> {
+    return this.http.get<Question[]>(this.questionsUrl)
+      .pipe(
+        tap(_ => this.log('fetched questions')),
         catchError(this.handleError<Question[]>('getQuestions', []))
       );
   }
@@ -42,6 +50,7 @@ export class QuestionService {
   }
 
   addQuestion(question: Question): Observable<Question> {
+
     return this.http.post(this.questionsUrl, question, this.httpOptions).pipe(
       tap((newQuestion: Question) => this.log(`added new question w/ id=${newQuestion.id}`)),
       catchError(this.handleError<Question>('addQuestion'))
@@ -49,19 +58,16 @@ export class QuestionService {
   }
 
   private log (msg) {
-    console.log(msg);
+    console.error(msg);
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }

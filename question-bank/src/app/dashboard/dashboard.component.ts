@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getQuestions(): void {
-    this.questionService.getQuestions().subscribe(
+    this.questionService.getQuestionsForInterview().subscribe(
       questions => {
         console.log(questions);
         this.questions = questions.slice(0, 5);

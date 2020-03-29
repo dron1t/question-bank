@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/question-bank/question-bank.iml" filepath="$PROJECT_DIR$/question-bank/question-bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questions-crud/questions-crud.iml" filepath="$PROJECT_DIR$/questions-crud/questions-crud.iml" />
+    </modules>
+  </component>
+</project>

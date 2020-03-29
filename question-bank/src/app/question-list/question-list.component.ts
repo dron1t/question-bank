@@ -10,7 +10,7 @@ import { QuestionService } from './../question.service';
 export class QuestionListComponent implements OnInit {
 
   selectedQuestion: Question;
-
+  newQuestionId: number; //FIXME: remove when connecting to backend
   questions: Question[];
 
   constructor(private questionService: QuestionService) { }
@@ -21,7 +21,10 @@ export class QuestionListComponent implements OnInit {
 
   getQuestions(): void {
     this.questionService.getQuestions().subscribe(
-      questions => this.questions = questions
+      questions => {
+        this.questions = questions;
+        this.newQuestionId = questions[questions.length -1].id + 1; //FIXME: remove when connecting to backend
+      }
     );
   }
 

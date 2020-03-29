@@ -3,15 +3,13 @@
   <h2>{{question.text }}</h2>
   <div><span>id: </span>{{question.id}}</div>
   <div>
-    <label>question:
-      <input [(ngModel)]="question.text" placeholder="text"/>
-    </label>
+    <label>question:</label>
+    <textarea rows="8" cols="55" [(ngModel)]="question.text" placeholder="text"></textarea>
   </div>
 
   <div>
-    <label>answer:
-      <input [(ngModel)]="question.answer" placeholder="text"/>
-    </label>
+    <label>answer:</label>
+    <textarea rows="8" cols="55" [(ngModel)]="question.answer" placeholder="text"></textarea>
   </div>
 
   <div>
@@ -21,5 +19,5 @@
   </div>
 
 </div>
-<button (click)="save()">Save</button>
-<button (click)="goBack()">go back</button>
+<button class="button green-bg" (click)="save()">Save</button>
+<button class="button red-bg" (click)="goBack()">go back</button>

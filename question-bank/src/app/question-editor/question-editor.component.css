@@ -1,0 +1,31 @@
+textarea {
+  padding: 10px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.green-bg {
+  background-color: #4CAF50;
+}
+
+.red-bg {
+  background-color: #ff6352;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0.5em;
+  cursor: pointer;
+}

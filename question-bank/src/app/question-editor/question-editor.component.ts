@@ -34,6 +34,9 @@ export class QuestionEditorComponent implements OnInit {
     if (id) {
       this.questionService.getQuestion(id)
         .subscribe(question => this.question = question);
+      //FIXME: remove when connecting to backend
+    } else {
+      this.question.id = +this.route.snapshot.paramMap.get('newQuestionId');
     }
   }
 
